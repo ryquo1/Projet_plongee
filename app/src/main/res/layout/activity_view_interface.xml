@@ -2,31 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/mainView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewInterface">
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textViewTitre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Crée une Plongée"
+        android:text="@string/TextTitre"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Créer le Créneau"
+        android:text="@string/TextBouton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,115 +46,147 @@
         <LinearLayout
             android:layout_width="159dp"
             android:layout_height="match_parent"
+            android:minHeight="48dp"
             android:orientation="vertical">
 
+
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/textViewDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="5dp"
-                android:text="  Inserer une date"
+                android:text="@string/TextDate"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textViewPeriode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="5dp"
-                android:text="  Choisir une période"
+                android:text="@string/TextPeriode"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/textViewSite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="5dp"
-                android:text="  Choisir un site"
+                android:text="@string/TextSite"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/textViewBateau"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="4dp"
-                android:text="  Choisir un bateau"
+                android:text="@string/TextBateau"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/textViewNiveau"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="4dp"
-                android:text="  Choisir le niveau"
+                android:text="@string/TextNiveau"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/textViewDirecteur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="4dp"
-                android:text="  Choisir le Directeur"
+                android:text="@string/TextDirecteur"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/textViewPilote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="4dp"
-                android:text="  Choisir le pilote"
+                android:text="@string/TextPilote"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/textViewSecurite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="4dp"
-                android:text="  Choisir une sécurité"
+                android:text="@string/TextSecurite"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textViewEffectifMin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="4dp"
-                android:text="  Effectif minimum"
+                android:text="@string/TextEffectifMin"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textViewEffectifMax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:minHeight="48dp"
                 android:paddingTop="4dp"
-                android:text="  Effectif maximum"
+                android:text="@string/TextEffectifMax"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16sp" />
 
@@ -166,125 +198,124 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editTextDate7"
+                android:id="@+id/editTextDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="12/02/2024"
-                android:inputType="date"
-                android:minHeight="48dp"
-                android:autofillHints=""/>
-
-            <EditText
-                android:id="@+id/editTextText2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="matin"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:autofillHints=""/>
-
-            <EditText
-                android:id="@+id/editTextText3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="portbail"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:autofillHints=""/>
-
-            <EditText
-                android:id="@+id/editTextText4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="Viking"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:autofillHints=""/>
-
-            <EditText
-                android:id="@+id/editTextText5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="b1"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:autofillHints=""/>
-
-            <EditText
-                android:id="@+id/editTextText6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="Didier"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:autofillHints=""/>
-
-            <EditText
-                android:id="@+id/editTextText7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="Jean"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:autofillHints=""/>
-
-            <EditText
-                android:id="@+id/editTextText8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="Valentin"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:autofillHints=""/>
-
-            <EditText
-                android:id="@+id/editTextNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="1"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:autofillHints=""/>
-
-            <EditText
-                android:id="@+id/editTextNumber2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="10"
-                android:inputType="number"
-                android:minHeight="48dp"
                 android:autofillHints=""
-                />
+                android:ems="10"
+                android:hint="@string/ExampleDate"
+                android:inputType="date"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/editTextPeriode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ExamplePeriode"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/editTextSite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ExampleSite"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/editTextBateau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ExampleBateau"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/editTextNiveau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ExampleNiveau"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/editTextDirecteur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ExampleDirecteur"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/editTextPilote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ExamplePilote"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/editTextSecurite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ExampleSecurite"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/editTextEffectifMin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ExampleEffectifMin"
+                android:inputType="number"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/editTextEffectifMax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ExampleEffectifMax"
+                android:inputType="number"
+                android:minHeight="48dp" />
         </LinearLayout>
     </LinearLayout>
 
