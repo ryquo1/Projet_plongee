@@ -1,7 +1,8 @@
-package com.example.projet_plongee.Base
+package com.example.projet_plongee.base.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.ForeignKey
 import java.util.Date
 
 @Entity
@@ -18,4 +19,4 @@ data class Plongee (
     var minimumEnregistre: Int,
     var maximumEnregistre: Int,
     var observation: String,
-)//Rajoutee les clés étrangères
+)
