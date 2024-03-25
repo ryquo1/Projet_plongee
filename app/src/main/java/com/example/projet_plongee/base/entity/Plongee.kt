@@ -15,8 +15,9 @@ data class Plongee (
     var numMembrePilote: Int,
     var numPrerogativ: Int,
     var numPeriode: Int,
-    var date: Date,
+    var date: String,
     var minimumEnregistre: Int,
     var maximumEnregistre: Int,
     var observation: String,
 )
+//inclure les clées étrangères

@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Site (
+data class Siteplongee (
     @PrimaryKey(autoGenerate = false) var id: Long = 0,
     var nom: String,
     var coordonne: String,

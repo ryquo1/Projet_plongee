@@ -8,6 +8,6 @@ import java.sql.Time
 data class Periode (
     @PrimaryKey(autoGenerate = false) var id: Long = 0,
     var label: String,
-    var dateDebut: Time,
-    var dateFin: Time
+    var dateDebut: String,
+    var dateFin: String
 )

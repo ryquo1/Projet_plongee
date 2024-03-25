@@ -10,7 +10,7 @@ data class Membre (
     var numLicence: String,
     var nom: String,
     var prenom: String,
-    var dateCertificat: Date,
+    var dateCertificat: String,
     var prix: String,
     var status: Int,
     var nombrePlongee: Int,
