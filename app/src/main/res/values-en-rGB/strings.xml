@@ -12,5 +12,6 @@
     <string name="TextEffectifMin">Min people</string>
     <string name="TextEffectifMax">Max people</string>
     <string name="TextBouton">Create Slot</string>
+    <string name="TextBouton2">Change view</string>
     <string name="TextTitre">create Dive</string>
 </resources>

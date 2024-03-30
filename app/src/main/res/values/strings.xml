@@ -24,6 +24,7 @@
     <string name="ExampleEffectifMax" translatable="false">10</string>
 
     <string name="TextBouton">Créer le Creneau</string>
+    <string name="TextBouton2">Changer de vue</string>
     <string name="TextTitre">Crée une Plongée</string>
 
 </resources>

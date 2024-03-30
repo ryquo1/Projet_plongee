@@ -1,6 +1,8 @@
 package com.example.projet_plongee
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,6 +23,13 @@ class ViewInterface : AppCompatActivity() {
                 systemBars.bottom
             )
             insets
+        }
+        val bouton = findViewById<Button>(R.id.button2)
+        bouton.setOnClickListener{
+            val ancienIntent = Intent(this, ViewInterface::class.java)
+            val nouveauIntent = Intent(this, MainActivity::class.java)
+            startActivity(nouveauIntent)
+            stopService(ancienIntent)
         }
     }
 }
