@@ -70,6 +70,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation (libs.androidx.runtime.livedata)
+    implementation (libs.kotlinx.serialization.json)
+    implementation(libs.json)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -80,14 +83,14 @@ dependencies {
 
     val roomVersion = "2.6.1"
 
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    ksp("androidx.room:room-compiler:$roomVersion")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
     // optional - Paging 3 Integration
-    implementation("androidx.room:room-paging:$roomVersion")
+    implementation(libs.androidx.room.paging)
 
     // optional - Test helpers
-    testImplementation("androidx.room:room-testing:$roomVersion")
-    androidTestImplementation("androidx.room:room-testing:$roomVersion")
+    testImplementation(libs.androidx.room.testing)
+    androidTestImplementation(libs.androidx.room.testing)
 }
