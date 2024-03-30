@@ -25,4 +25,6 @@ interface DaoSite {
     @Query("Select * FROM Siteplongee")
     fun getAllSite(): LiveData<List<Siteplongee>>
 
+    @Query("Select nom FROM Siteplongee")
+    fun getNom(): List<String>
 }

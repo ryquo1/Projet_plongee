@@ -223,52 +223,36 @@
                 android:inputType="date"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/editTextPeriode"
+            <Spinner
+                android:id="@+id/PeriodSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/ExamplePeriode"
-                android:inputType="text"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/editTextSite"
+            <Spinner
+                android:id="@+id/SiteSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/ExampleSite"
-                android:inputType="text"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/editTextBateau"
+            <Spinner
+                android:id="@+id/BateauSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/ExampleBateau"
-                android:inputType="text"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/editTextNiveau"
+            <Spinner
+                android:id="@+id/NiveauSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/ExampleNiveau"
-                android:inputType="text"
                 android:minHeight="48dp" />
 
             <EditText
@@ -330,6 +314,7 @@
                 android:hint="@string/ExampleEffectifMax"
                 android:inputType="number"
                 android:minHeight="48dp" />
+
         </LinearLayout>
     </LinearLayout>
 

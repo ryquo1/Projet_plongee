@@ -25,4 +25,6 @@ interface DaoBateau {
     @Query("Select * FROM Bateau")
     fun getAllBateau(): LiveData<List<Bateau>>
 
+    @Query("Select nom FROM Bateau")
+    fun getNom(): List<String>
 }

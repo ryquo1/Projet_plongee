@@ -27,4 +27,7 @@ interface DaoPeriode {
     @Query("Select * FROM Periode")
     fun getAllPeriode(): LiveData<List<Periode>>
 
+    @Query("Select label FROM Periode")
+    fun getLabel(): List<String>
+
 }

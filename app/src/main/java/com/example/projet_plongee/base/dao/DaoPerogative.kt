@@ -28,4 +28,7 @@ interface DaoPerogative {
     @Query("Select * FROM Perogative")
     fun getAllPerogative(): LiveData<List<Perogative>>
 
+
+    @Query("Select niveau from Perogative")
+    fun getNiveau(): List<String>
 }

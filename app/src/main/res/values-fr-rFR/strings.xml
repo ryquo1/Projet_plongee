@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projet_plongee</string>
+    <string name="TextDate">Inserer une date</string>
+    <string name="TextPeriode">Choisir une période</string>
+    <string name="TextSite">Choisir un Site</string>
+    <string name="TextBateau">Choisir un Bateau</string>
+    <string name="TextNiveau">Choisir le niveau</string>
+    <string name="TextDirecteur">Choisir le Directeur</string>
+    <string name="TextPilote">Choisir le pilote</string>
+    <string name="TextSecurite">Choisir une Securité</string>
+    <string name="TextEffectifMin">Effectif minimum</string>
+    <string name="TextEffectifMax">Effectif maximum</string>
+    <string name="TextBouton">Créer le Creneau</string>
+    <string name="TextBouton2">Changer de vue</string>
+    <string name="TextTitre">Crée une Plongée</string>
+</resources>
