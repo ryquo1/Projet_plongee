@@ -102,4 +102,27 @@ class Requete : ViewModel() {
         return liveDataPeriod
     }
 
+    private val liveDataMembre: MutableLiveData<String> = MutableLiveData<String>()
+
+    fun getMembreResult() : LiveData<String> = liveDataMembre
+    fun getAllMembre() : LiveData<String>{
+        Thread{
+            val urlRequest  = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/members")
+            try{
+                val conn = urlRequest.openConnection() as HttpsURLConnection
+                conn.connect()
+                if (conn.responseCode != 200) {
+                    liveDataMembre.postValue("Http error in connection (error code : ${conn.responseCode})")
+                    return@Thread
+                }
+                val flux: BufferedReader = conn.inputStream.bufferedReader()
+                liveDataMembre.postValue(flux.readText())
+            }catch (e: Exception){
+                liveDataMembre.postValue("Network error during process ($e)")
+                return@Thread
+            }
+        }.start()
+        return liveDataMembre
+    }
+
 }
