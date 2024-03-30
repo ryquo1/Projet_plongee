@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project_plongee</string>
+    <string name="TextDate">Insert Date</string>
+    <string name="TextPeriode">Select period</string>
+    <string name="TextSite">Select Area</string>
+    <string name="TextBateau">Select Boat</string>
+    <string name="TextNiveau">Select level</string>
+    <string name="TextDirecteur">Select Director</string>
+    <string name="TextPilote">Select Pilot</string>
+    <string name="TextSecurite">Select security agent</string>
+    <string name="TextEffectifMin">Min people</string>
+    <string name="TextEffectifMax">Max people</string>
+    <string name="TextBouton">Create Slot</string>
+    <string name="TextBouton2">Change view</string>
+    <string name="TextTitre">create Dive</string>
+</resources>

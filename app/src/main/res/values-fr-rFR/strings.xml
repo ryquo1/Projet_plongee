@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Projet_plongee</string>
     <string name="TextDate">Inserer une date</string>
@@ -10,21 +11,7 @@
     <string name="TextSecurite">Choisir une Securité</string>
     <string name="TextEffectifMin">Effectif minimum</string>
     <string name="TextEffectifMax">Effectif maximum</string>
-
-
-    <string name="ExampleDate" translatable="false">12/02/2024</string>
-    <string name="ExamplePeriode" translatable="false">matin</string>
-    <string name="ExampleSite" translatable="false">portbail</string>
-    <string name="ExampleBateau" translatable="false">Viking</string>
-    <string name="ExampleNiveau" translatable="false">b1</string>
-    <string name="ExampleDirecteur" translatable="false">Didier</string>
-    <string name="ExamplePilote" translatable="false">Jean</string>
-    <string name="ExampleSecurite" translatable="false">Valentin</string>
-    <string name="ExampleEffectifMin" translatable="false">1</string>
-    <string name="ExampleEffectifMax" translatable="false">10</string>
-
     <string name="TextBouton">Créer le Creneau</string>
     <string name="TextBouton2">Changer de vue</string>
     <string name="TextTitre">Crée une Plongée</string>
-
 </resources>
