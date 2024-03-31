@@ -255,40 +255,28 @@
                 android:layout_marginBottom="5dp"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/editTextDirecteur"
+            <Spinner
+                android:id="@+id/DirecteurSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/ExampleDirecteur"
-                android:inputType="text"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/editTextPilote"
+            <Spinner
+                android:id="@+id/PiloteSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/ExamplePilote"
-                android:inputType="text"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/editTextSecurite"
+            <Spinner
+                android:id="@+id/SecuriteSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/ExampleSecurite"
-                android:inputType="text"
                 android:minHeight="48dp" />
 
             <EditText

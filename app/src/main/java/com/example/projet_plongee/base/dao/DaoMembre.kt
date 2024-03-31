@@ -26,4 +26,13 @@ interface DaoMembre {
     @Query("Select * FROM Membre")
     fun getAllMembre(): LiveData<List<Membre>>
 
+    @Query("Select nom FROM Membre where status = 2")
+    fun getNomSecurite(): List<String>
+
+    @Query("Select nom FROM Membre where status = 3")
+    fun getNomPilote(): List<String>
+
+    @Query("Select nom FROM Membre where status = 4")
+    fun getNomResponsable(): List<String>
+
 }

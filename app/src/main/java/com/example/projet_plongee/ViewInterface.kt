@@ -15,6 +15,7 @@ import com.example.projet_plongee.base.*
 import com.example.projet_plongee.base.entity.Periode
 import com.example.projet_plongee.base.entity.Siteplongee
 import com.example.projet_plongee.base.view.BateauView
+import com.example.projet_plongee.base.view.MembreView
 import com.example.projet_plongee.base.view.PeriodeView
 import com.example.projet_plongee.base.view.PerogativeView
 import com.example.projet_plongee.base.view.SiteView
@@ -71,6 +72,33 @@ class ViewInterface : AppCompatActivity() {
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
             spinnerNiveau.adapter = adapter
+        }.start()
+
+       Thread{
+            val directeur : MembreView by viewModels()
+            val spinnerDirecteur = findViewById<Spinner>(R.id.DirecteurSpinner)
+            val list : List<String> = directeur.BDD.MembreDAO().getNomResponsable()
+            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+            spinnerDirecteur.adapter = adapter
+        }.start()
+
+        Thread{
+            val pilote : MembreView by viewModels()
+            val spinnerpilote = findViewById<Spinner>(R.id.PiloteSpinner)
+            val list : List<String> = pilote.BDD.MembreDAO().getNomPilote()
+            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+            spinnerpilote.adapter = adapter
+        }.start()
+
+        Thread{
+            val securite : MembreView by viewModels()
+            val spinnersecurite = findViewById<Spinner>(R.id.SecuriteSpinner)
+            val list : List<String> = securite.BDD.MembreDAO().getNomSecurite()
+            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+            spinnersecurite.adapter = adapter
         }.start()
 
 
