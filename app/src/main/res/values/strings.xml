@@ -12,7 +12,7 @@
     <string name="TextEffectifMax">Effectif maximum</string>
 
 
-    <string name="ExampleDate" translatable="false">12/02/2024</string>
+    <string name="ExampleDate" translatable="false">2024-12-21</string>
     <string name="ExamplePeriode" translatable="false">matin</string>
     <string name="ExampleSite" translatable="false">portbail</string>
     <string name="ExampleBateau" translatable="false">Viking</string>
