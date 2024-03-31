@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
@@ -40,6 +41,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.example.projet_plongee.api.Requete
@@ -83,11 +85,13 @@ class MainActivity : ComponentActivity() {
                      * Bouton pour changer de page
                      **/
                     val nouveauIntent = Intent(this, ViewInterface::class.java)
-                    Text(text = "Saisie Adherent", fontSize = 35.sp, textAlign = TextAlign.Center)
+
                     Column(
                         verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.background(Color.LightGray)
                     ) {
+                        Text(text = "Saisie Adherent", fontSize = 35.sp, modifier = Modifier.padding(bottom = 10.dp))
                         SaisieAdherent(viewMembre)
                         Button(onClick = {
                             startActivity(nouveauIntent)
@@ -109,12 +113,15 @@ class MainActivity : ComponentActivity() {
             onValueChange = { if (it.length <= maxChar) numLicence = it },
             label = { Text("NumLicence") })
 
+        Spacer(modifier = Modifier.padding(Dp(5f)))
         var nom by remember { mutableStateOf("") }
         TextField(value = nom, onValueChange = { nom = it }, label = { Text("Nom") })
 
+        Spacer(modifier = Modifier.padding(Dp(5f)))
         var prenom by remember { mutableStateOf("") }
         TextField(value = prenom, onValueChange = { prenom = it }, label = { Text("Prenom") })
 
+        Spacer(modifier = Modifier.padding(Dp(5f)))
         var motDePasse by rememberSaveable { mutableStateOf("") }
         var motDePasseVisible by rememberSaveable { mutableStateOf(false) }
         TextField(value = motDePasse,
@@ -134,7 +141,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
             })
-
+        Spacer(modifier = Modifier.padding(Dp(5f)))
         var date by remember {
             mutableStateOf("")
         }
@@ -157,14 +164,14 @@ class MainActivity : ComponentActivity() {
                         onDismiss = { showDatePicker = false })
                 }
             })
-
+        Spacer(modifier = Modifier.padding(Dp(5f)))
         var selectedStatus by remember {
             mutableStateOf("")
         }
         var showStatusPicker by remember {
             mutableStateOf(false)
         }
-        val selectedOption = remember { mutableStateOf("adulte") }
+        val selectedOption = remember { mutableStateOf("") }
         TextField(value = selectedStatus,
             onValueChange = { selectedStatus = it },
             label = { Text("Statut") },
@@ -202,7 +209,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             })
-
+        Spacer(modifier = Modifier.padding(Dp(5f)))
         var actif by remember { mutableStateOf("") }
         TextField(value = actif,
             onValueChange = { actif = it },
@@ -211,7 +218,7 @@ class MainActivity : ComponentActivity() {
             ),
             label = { Text("Actif ?") },
             placeholder = { Text("0 = non, 1 = oui") })
-
+        Spacer(modifier = Modifier.padding(Dp(5f)))
         var nombrePlongee by remember { mutableStateOf("") }
         TextField(value = nombrePlongee,
             onValueChange = { nombrePlongee = it },
@@ -219,7 +226,7 @@ class MainActivity : ComponentActivity() {
                 keyboardType = KeyboardType.Number
             ),
             label = { Text("Nombre de plongée") })
-
+        Spacer(modifier = Modifier.padding(Dp(5f)))
         val checkValeurs =
             numLicence != "" && nom != "" && prenom != "" && motDePasse != "" && date != "" && selectedStatus != "" && actif != "" && nombrePlongee != ""
 

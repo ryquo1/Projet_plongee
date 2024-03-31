@@ -1,10 +1,15 @@
 package com.example.projet_plongee.api
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.livedata.observeAsState
 import org.json.JSONObject
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.intermediateLayout
+import androidx.compose.ui.unit.dp
 import com.example.projet_plongee.base.entity.Bateau
 import com.example.projet_plongee.base.entity.Membre
 import com.example.projet_plongee.base.entity.Periode
@@ -36,7 +41,7 @@ class Gestion {
                             json2.getString("name"),
                             json2.getString("capacity").toInt(),
                         )
-                        viewBateau.bdd.bateauDAO().delete(nouveauBateau) //a changer
+                        viewBateau.bdd.bateauDAO().delete(nouveauBateau)
                         viewBateau.bdd.bateauDAO().insert(nouveauBateau)
                     }
                 }.start()
@@ -64,7 +69,7 @@ class Gestion {
                             json2.getString("start_time"),
                             json2.getString("end_time"),
                         )
-                        viewPeriod.bdd.periodeDAO().delete(nouvellePeriod) //a changer
+                        viewPeriod.bdd.periodeDAO().delete(nouvellePeriod)
                         viewPeriod.bdd.periodeDAO().insert(nouvellePeriod)
                     }
                 }.start()
@@ -91,7 +96,7 @@ class Gestion {
                             json2.getString("label"),
                             json2.getString("priority").toInt(),
                         )
-                        viewPerogative.bdd.perogativeDAO().delete(nouvellePrerogative) //a changer
+                        viewPerogative.bdd.perogativeDAO().delete(nouvellePrerogative)
                         viewPerogative.bdd.perogativeDAO().insert(nouvellePrerogative)
                     }
                 }.start()
@@ -119,7 +124,7 @@ class Gestion {
                             json2.getString("depth"),
                             json2.getString("description"),
                         )
-                        viewSite.bdd.siteDAO().delete(nouveauSite) //a changer
+                        viewSite.bdd.siteDAO().delete(nouveauSite)
                         viewSite.bdd.siteDAO().insert(nouveauSite)
                     }
                 }.start()
@@ -157,7 +162,7 @@ class Gestion {
                         json2.getString("remaining_dives").toInt(),
                         json2.getString("subdate"),
                     )
-                    viewMembre.bdd.membreDAO().delete(nouveauMembre) //a changer
+                    viewMembre.bdd.membreDAO().delete(nouveauMembre)
                     viewMembre.bdd.membreDAO().insert(nouveauMembre)
                 }
             }.start()
