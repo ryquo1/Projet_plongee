@@ -30,4 +30,6 @@ interface DaoPeriode {
     @Query("Select label FROM Periode")
     fun getLabel(): List<String>
 
+    @Query("Select id FROM Periode where label = :text")
+    fun getIdperiod(text: String): Int
 }

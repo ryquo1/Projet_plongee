@@ -1,6 +1,7 @@
 package com.example.projet_plongee.base
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -19,7 +20,10 @@ import com.example.projet_plongee.base.entity.Siteplongee
 
 @Database(
     entities = [Bateau::class, Membre::class, Periode::class, Perogative::class, Plongee::class, Siteplongee::class],
-    version = 1
+    version = 2,
+    autoMigrations = [
+        AutoMigration(from = 1, to = 2)
+    ]
 )
 
 abstract class Base : RoomDatabase() {

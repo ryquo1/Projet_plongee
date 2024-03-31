@@ -27,4 +27,7 @@ interface DaoBateau {
 
     @Query("Select nom FROM Bateau")
     fun getNom(): List<String>
+
+    @Query("Select id FROM Bateau where nom = :text")
+    fun getIdBateau(text: String): Int
 }

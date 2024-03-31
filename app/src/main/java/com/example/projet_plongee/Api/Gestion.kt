@@ -134,7 +134,7 @@ class Gestion {
     @Composable
     fun GetMembreToBdd(requete: Requete, viewMembre: MembreView) {
         val state = requete.getMembreResult().observeAsState()
-        var res : Int = 0
+        var res: Int = 0
         requete.getAllMembre()
         if (state.value == null) {
             CircularProgressIndicator()
@@ -145,10 +145,9 @@ class Gestion {
                 for (i in 0..array.length() - 1) {
                     val json2 = JSONObject(array.getJSONObject(i).getString("attributes"))
                     val array2 = json2.getJSONArray("functions")
-                    for (j in 0..array2.length()-1){
+                    for (j in 0..array2.length() - 1) {
                         val json3 = JSONObject(array2.getJSONObject(j).getString("pivot"))
                         res = json3.get("NUM_FUNCTION").toString().toInt()
-                        Log.d("ALEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD", res.toString())
                     }
 
                     val nouveauMembre = Membre(
@@ -164,8 +163,6 @@ class Gestion {
                     )
                     viewMembre.BDD.MembreDAO().delete(nouveauMembre) //a changer
                     viewMembre.BDD.MembreDAO().insert(nouveauMembre)
-
-
                 }
             }.start()
         }

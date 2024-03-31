@@ -7,7 +7,7 @@ import java.util.Date
 
 @Entity
 data class Plongee (
-    @PrimaryKey(autoGenerate = false) var id: Long,
+    @PrimaryKey(autoGenerate = true) var id: Long,
     var numeroBateau: Int,
     var numMembreSecuritee: Int,
     var numMembreDirecteur: Int,
@@ -20,4 +20,3 @@ data class Plongee (
     var maximumEnregistre: Int,
     var observation: String,
 )
-//inclure les clées étrangères

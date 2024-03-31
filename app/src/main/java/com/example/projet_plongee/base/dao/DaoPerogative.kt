@@ -31,4 +31,7 @@ interface DaoPerogative {
 
     @Query("Select niveau from Perogative")
     fun getNiveau(): List<String>
+
+    @Query("Select id FROM PEROGATIVE where niveau = :text")
+    fun getIdNiveau(text: String): Int
 }

@@ -11,11 +11,11 @@ class Requete : ViewModel() {
 
     private val liveDataBoat: MutableLiveData<String> = MutableLiveData<String>()
 
-    fun getBoatResult() : LiveData<String> = liveDataBoat
-    fun getAllBoat() : LiveData<String>{
-        Thread{
-            val urlRequest  = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/boats")
-            try{
+    fun getBoatResult(): LiveData<String> = liveDataBoat
+    fun getAllBoat(): LiveData<String> {
+        Thread {
+            val urlRequest = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/boats")
+            try {
                 val conn = urlRequest.openConnection() as HttpsURLConnection
                 conn.connect()
                 if (conn.responseCode != 200) {
@@ -24,7 +24,7 @@ class Requete : ViewModel() {
                 }
                 val flux: BufferedReader = conn.inputStream.bufferedReader()
                 liveDataBoat.postValue(flux.readText())
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 liveDataBoat.postValue("Network error during process ($e)")
                 return@Thread
             }
@@ -35,11 +35,11 @@ class Requete : ViewModel() {
 
     private val liveDataSite: MutableLiveData<String> = MutableLiveData<String>()
 
-    fun getSiteResult() : LiveData<String> = liveDataSite
-    fun getAllSite() : LiveData<String>{
-        Thread{
-            val urlRequest  = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/sites")
-            try{
+    fun getSiteResult(): LiveData<String> = liveDataSite
+    fun getAllSite(): LiveData<String> {
+        Thread {
+            val urlRequest = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/sites")
+            try {
                 val conn = urlRequest.openConnection() as HttpsURLConnection
                 conn.connect()
                 if (conn.responseCode != 200) {
@@ -48,7 +48,7 @@ class Requete : ViewModel() {
                 }
                 val flux: BufferedReader = conn.inputStream.bufferedReader()
                 liveDataSite.postValue(flux.readText())
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 liveDataSite.postValue("Network error during process ($e)")
                 return@Thread
             }
@@ -58,11 +58,11 @@ class Requete : ViewModel() {
 
     private val liveDataPrerogative: MutableLiveData<String> = MutableLiveData<String>()
 
-    fun getPrerogativeResult() : LiveData<String> = liveDataPrerogative
-    fun getAllPrerogative() : LiveData<String>{
-        Thread{
-            val urlRequest  = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/prerogatives")
-            try{
+    fun getPrerogativeResult(): LiveData<String> = liveDataPrerogative
+    fun getAllPrerogative(): LiveData<String> {
+        Thread {
+            val urlRequest = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/prerogatives")
+            try {
                 val conn = urlRequest.openConnection() as HttpsURLConnection
                 conn.connect()
                 if (conn.responseCode != 200) {
@@ -71,7 +71,7 @@ class Requete : ViewModel() {
                 }
                 val flux: BufferedReader = conn.inputStream.bufferedReader()
                 liveDataPrerogative.postValue(flux.readText())
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 liveDataPrerogative.postValue("Network error during process ($e)")
                 return@Thread
             }
@@ -81,11 +81,11 @@ class Requete : ViewModel() {
 
     private val liveDataPeriod: MutableLiveData<String> = MutableLiveData<String>()
 
-    fun getPeriodResult() : LiveData<String> = liveDataPeriod
-    fun getAllPeriod() : LiveData<String>{
-        Thread{
-            val urlRequest  = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/periods")
-            try{
+    fun getPeriodResult(): LiveData<String> = liveDataPeriod
+    fun getAllPeriod(): LiveData<String> {
+        Thread {
+            val urlRequest = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/periods")
+            try {
                 val conn = urlRequest.openConnection() as HttpsURLConnection
                 conn.connect()
                 if (conn.responseCode != 200) {
@@ -94,7 +94,7 @@ class Requete : ViewModel() {
                 }
                 val flux: BufferedReader = conn.inputStream.bufferedReader()
                 liveDataPeriod.postValue(flux.readText())
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 liveDataPeriod.postValue("Network error during process ($e)")
                 return@Thread
             }
@@ -104,11 +104,11 @@ class Requete : ViewModel() {
 
     private val liveDataMembre: MutableLiveData<String> = MutableLiveData<String>()
 
-    fun getMembreResult() : LiveData<String> = liveDataMembre
-    fun getAllMembre() : LiveData<String>{
-        Thread{
-            val urlRequest  = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/members")
-            try{
+    fun getMembreResult(): LiveData<String> = liveDataMembre
+    fun getAllMembre(): LiveData<String> {
+        Thread {
+            val urlRequest = URL("https://dev-sae301grp5.users.info.unicaen.fr/api/members")
+            try {
                 val conn = urlRequest.openConnection() as HttpsURLConnection
                 conn.connect()
                 if (conn.responseCode != 200) {
@@ -117,7 +117,7 @@ class Requete : ViewModel() {
                 }
                 val flux: BufferedReader = conn.inputStream.bufferedReader()
                 liveDataMembre.postValue(flux.readText())
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 liveDataMembre.postValue("Network error during process ($e)")
                 return@Thread
             }

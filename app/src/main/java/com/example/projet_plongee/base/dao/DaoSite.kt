@@ -27,4 +27,7 @@ interface DaoSite {
 
     @Query("Select nom FROM Siteplongee")
     fun getNom(): List<String>
+
+    @Query("Select id FROM SITEPLONGEE where nom = :text")
+    fun getIdSite(text:String): Int
 }

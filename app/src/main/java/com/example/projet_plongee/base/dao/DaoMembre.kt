@@ -35,4 +35,6 @@ interface DaoMembre {
     @Query("Select nom FROM Membre where status = 4")
     fun getNomResponsable(): List<String>
 
+    @Query("Select id From Membre where nom = :text")
+    fun getIdMembre(text: String): Int
 }
