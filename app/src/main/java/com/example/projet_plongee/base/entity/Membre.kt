@@ -6,7 +6,7 @@ import java.util.Date
 
 @Entity
 data class Membre (
-    @PrimaryKey(autoGenerate = false) var id: Long =0,
+    @PrimaryKey(autoGenerate = true) var id: Long =0,
     var numLicence: String,
     var nom: String,
     var prenom: String,

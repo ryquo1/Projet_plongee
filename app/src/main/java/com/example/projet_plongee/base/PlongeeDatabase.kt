@@ -20,9 +20,9 @@ import com.example.projet_plongee.base.entity.Siteplongee
 
 @Database(
     entities = [Bateau::class, Membre::class, Periode::class, Perogative::class, Plongee::class, Siteplongee::class],
-    version = 3,
+    version = 4,
     autoMigrations = [
-        AutoMigration(from = 2, to = 3)
+        AutoMigration(from = 3, to = 4)
     ]
 )
 
