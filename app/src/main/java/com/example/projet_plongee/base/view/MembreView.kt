@@ -6,7 +6,7 @@ import com.example.projet_plongee.base.Base
 
 class MembreView(application: Application) :
     AndroidViewModel(application) {
-        val BDD = Base.getInstance(application)
-        val dao = BDD.MembreDAO()
+        val bdd = Base.getInstance(application)
+        val dao = bdd.membreDAO()
         val bateau = dao.getAllMembre()
 }

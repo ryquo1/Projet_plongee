@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,11 +38,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-import com.example.projet_plongee.Api.Requete
+import com.example.projet_plongee.api.Requete
 import com.example.projet_plongee.ui.theme.Projet_plongeeTheme
-import com.example.projet_plongee.Api.Gestion
+import com.example.projet_plongee.api.Gestion
 import com.example.projet_plongee.base.entity.Membre
 import com.example.projet_plongee.base.view.BateauView
 import com.example.projet_plongee.base.view.MembreView
@@ -50,6 +53,7 @@ import com.example.projet_plongee.base.view.PerogativeView
 import com.example.projet_plongee.base.view.SiteView
 import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,24 +72,29 @@ class MainActivity : ComponentActivity() {
                     val viewPrerogative: PerogativeView by viewModels()
                     val viewSite: SiteView by viewModels()
                     val viewMembre: MembreView by viewModels()
-                    val ApiToBdd: Gestion = Gestion()
-                    ApiToBdd.GetbateauToBdd(requete, viewBateau)
-                    ApiToBdd.GetPeriodToBdd(requete, viewPeriod)
-                    ApiToBdd.GetPrerogativeToBdd(requete, viewPrerogative)
-                    ApiToBdd.GetSiteToBdd(requete, viewSite)
-                    ApiToBdd.GetMembreToBdd(requete, viewMembre)
+                    val apiToBdd = Gestion()
+                    apiToBdd.GetbateauToBdd(requete, viewBateau)
+                    apiToBdd.GetPeriodToBdd(requete, viewPeriod)
+                    apiToBdd.GetPrerogativeToBdd(requete, viewPrerogative)
+                    apiToBdd.GetSiteToBdd(requete, viewSite)
+                    apiToBdd.GetMembreToBdd(requete, viewMembre)
 
                     /**
                      * Bouton pour changer de page
                      **/
                     val nouveauIntent = Intent(this, ViewInterface::class.java)
-                    Column {
+                    Text(text = "Saisie Adherent", fontSize = 35.sp, textAlign = TextAlign.Center)
+                    Column(
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        SaisieAdherent(viewMembre)
                         Button(onClick = {
                             startActivity(nouveauIntent)
                         }) {
                             Text(text = "changer de vue")
                         }
-                        SaisieAdherent(viewMembre)
+
                     }
                 }
             }
@@ -113,16 +122,16 @@ class MainActivity : ComponentActivity() {
             label = { Text("Mot De Passe") },
             visualTransformation = if (motDePasseVisible) VisualTransformation.None else PasswordVisualTransformation(),
             trailingIcon = {
-                val image = if (motDePasseVisible) Icon(
-                    painter = painterResource(id = R.drawable.visibility), contentDescription = null
-                )
-                else Icon(
-                    painter = painterResource(id = R.drawable.visibility_off),
-                    contentDescription = null
-                )
 
                 IconButton(onClick = { motDePasseVisible = !motDePasseVisible }) {
-                    image
+                    if (motDePasseVisible) Icon(
+                        painter = painterResource(id = R.drawable.visibility),
+                        contentDescription = null
+                    )
+                    else Icon(
+                        painter = painterResource(id = R.drawable.visibility_off),
+                        contentDescription = null
+                    )
                 }
             })
 
@@ -136,12 +145,11 @@ class MainActivity : ComponentActivity() {
             onValueChange = { date = it },
             label = { Text("Date de Certificat") },
             trailingIcon = {
-                val image = Icon(
-                    painter = painterResource(id = R.drawable.calendar), contentDescription = null
-                )
-
                 IconButton(onClick = { showDatePicker = true }) {
-                    image
+                    Icon(
+                        painter = painterResource(id = R.drawable.calendar),
+                        contentDescription = null
+                    )
                 }
 
                 if (showDatePicker) {
@@ -161,12 +169,10 @@ class MainActivity : ComponentActivity() {
             onValueChange = { selectedStatus = it },
             label = { Text("Statut") },
             trailingIcon = {
-                val image = Icon(
-                    painter = painterResource(id = R.drawable.person), contentDescription = null
-                )
-
                 IconButton(onClick = { showStatusPicker = true }) {
-                    image
+                    Icon(
+                        painter = painterResource(id = R.drawable.person), contentDescription = null
+                    )
                 }
 
                 if (showStatusPicker) {
@@ -197,10 +203,6 @@ class MainActivity : ComponentActivity() {
                 }
             })
 
-
-        var email by remember { mutableStateOf("") }
-        TextField(value = email, onValueChange = { email = it }, label = { Text("Email") })
-
         var actif by remember { mutableStateOf("") }
         TextField(value = actif,
             onValueChange = { actif = it },
@@ -218,12 +220,12 @@ class MainActivity : ComponentActivity() {
             ),
             label = { Text("Nombre de plongée") })
 
-        var checkValeurs =
-            numLicence != "" && nom != "" && prenom != "" && motDePasse != "" && date != "" && selectedStatus != "" && email != "" && actif != "" && nombrePlongee != ""
+        val checkValeurs =
+            numLicence != "" && nom != "" && prenom != "" && motDePasse != "" && date != "" && selectedStatus != "" && actif != "" && nombrePlongee != ""
 
         Button(enabled = checkValeurs, onClick = {
             Thread {
-                var nouveauMembre = Membre(
+                val nouveauMembre = Membre(
                     numLicence = numLicence,
                     nom = nom,
                     prenom = prenom,
@@ -233,7 +235,7 @@ class MainActivity : ComponentActivity() {
                     prix = selectedStatus,
                     nombrePlongee = nombrePlongee.toInt()
                 )
-                viewMembre.BDD.MembreDAO().insert(nouveauMembre)
+                viewMembre.bdd.membreDAO().insert(nouveauMembre)
                 numLicence = ""
                 nom = ""
                 prenom = ""
@@ -252,7 +254,7 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyDatePickerDialog(
-    onDateSelected: (String) -> Unit, onDismiss: () -> Unit
+    onDateSelected: (String) -> Unit, onDismiss: () -> Unit,
 ) {
     val datePickerState = rememberDatePickerState(selectableDates = object : SelectableDates {
         override fun isSelectableDate(utcTimeMillis: Long): Boolean {
@@ -287,7 +289,7 @@ fun MyDatePickerDialog(
 }
 
 private fun convertMillisToDate(millis: Long): String {
-    val formatter = SimpleDateFormat("dd/MM/yyyy")
+    val formatter = SimpleDateFormat("dd/MM/yyyy", Locale("FR_fr"))
     return formatter.format(Date(millis))
 }
 

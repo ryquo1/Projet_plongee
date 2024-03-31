@@ -6,7 +6,7 @@ import com.example.projet_plongee.base.Base
 
 class PlongeeView(application: Application) :
     AndroidViewModel(application) {
-        val BDD = Base.getInstance(application)
-        val dao = BDD.PlongeeDAO()
+        val bdd = Base.getInstance(application)
+        val dao = bdd.plongeeDAO()
         val bateau = dao.getAllplongee()
 }

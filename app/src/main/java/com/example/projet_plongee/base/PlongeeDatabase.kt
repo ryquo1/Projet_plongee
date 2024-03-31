@@ -27,12 +27,12 @@ import com.example.projet_plongee.base.entity.Siteplongee
 )
 
 abstract class Base : RoomDatabase() {
-    abstract fun BateauDAO(): DaoBateau
-    abstract fun MembreDAO(): DaoMembre
-    abstract fun PeriodeDAO(): DaoPeriode
-    abstract fun PerogativeDAO(): DaoPerogative
-    abstract fun PlongeeDAO(): DaoPlongee
-    abstract fun SiteDAO(): DaoSite
+    abstract fun bateauDAO(): DaoBateau
+    abstract fun membreDAO(): DaoMembre
+    abstract fun periodeDAO(): DaoPeriode
+    abstract fun perogativeDAO(): DaoPerogative
+    abstract fun plongeeDAO(): DaoPlongee
+    abstract fun siteDAO(): DaoSite
 
     companion object {
         private var instance: Base? = null

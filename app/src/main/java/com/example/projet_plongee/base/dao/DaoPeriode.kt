@@ -6,8 +6,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.projet_plongee.base.entity.Bateau
-import com.example.projet_plongee.base.entity.Membre
 import com.example.projet_plongee.base.entity.Periode
 
 @Dao

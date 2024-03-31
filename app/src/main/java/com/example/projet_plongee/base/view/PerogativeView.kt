@@ -6,7 +6,7 @@ import com.example.projet_plongee.base.Base
 
 class PerogativeView(application: Application) :
     AndroidViewModel(application) {
-        val BDD = Base.getInstance(application)
-        val dao = BDD.PerogativeDAO()
+        val bdd = Base.getInstance(application)
+        val dao = bdd.perogativeDAO()
         val bateau = dao.getAllPerogative()
 }

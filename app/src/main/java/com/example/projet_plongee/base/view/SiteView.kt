@@ -6,7 +6,7 @@ import com.example.projet_plongee.base.Base
 
 class SiteView(application: Application) :
     AndroidViewModel(application) {
-        val BDD = Base.getInstance(application)
-        val dao = BDD.SiteDAO()
+        val bdd = Base.getInstance(application)
+        val dao = bdd.siteDAO()
         val bateau = dao.getAllSite()
 }

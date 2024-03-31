@@ -6,7 +6,7 @@ import com.example.projet_plongee.base.Base
 
 class PeriodeView(application: Application) :
     AndroidViewModel(application) {
-        val BDD = Base.getInstance(application)
-        val dao = BDD.PeriodeDAO()
+        val bdd = Base.getInstance(application)
+        val dao = bdd.periodeDAO()
         val bateau = dao.getAllPeriode()
 }

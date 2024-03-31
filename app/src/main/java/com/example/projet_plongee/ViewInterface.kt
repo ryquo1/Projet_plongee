@@ -14,7 +14,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.projet_plongee.Api.Requete
+import com.example.projet_plongee.api.Requete
 import com.example.projet_plongee.base.entity.Plongee
 import com.example.projet_plongee.base.view.BateauView
 import com.example.projet_plongee.base.view.MembreView
@@ -22,8 +22,6 @@ import com.example.projet_plongee.base.view.PeriodeView
 import com.example.projet_plongee.base.view.PerogativeView
 import com.example.projet_plongee.base.view.PlongeeView
 import com.example.projet_plongee.base.view.SiteView
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import kotlin.concurrent.thread
 
 class ViewInterface : AppCompatActivity() {
@@ -71,7 +69,7 @@ class ViewInterface : AppCompatActivity() {
 
         val CreateBouton = findViewById<Button>(R.id.button)
         CreateBouton.setOnClickListener {
-            val date = findViewById<EditText>(R.id.editTextDate).text.toString()
+            val date = findViewById<EditText>(R.id.editTextjour).text.toString()
             val period = spinnerPeriod.selectedItem.toString()
             val site = spinnerSite.selectedItem.toString()
             val bateau = spinnerBateau.selectedItem.toString()
@@ -126,13 +124,13 @@ class ViewInterface : AppCompatActivity() {
         thread {
             val requete = Requete()
             val id: Long = 0
-            val numPeriod = periodView.BDD.PeriodeDAO().getIdperiod(period)
-            val numSite = siteView.BDD.SiteDAO().getIdSite(site)
-            val numBateau = bateauView.BDD.BateauDAO().getIdBateau(bateau)
-            val numNiveau = niveauView.BDD.PerogativeDAO().getIdNiveau(niveau)
-            val numDirecteur = directeurView.BDD.MembreDAO().getIdMembre(directeur)
-            val numPilote = piloteView.BDD.MembreDAO().getIdMembre(pilote)
-            val numSecurite = securiteView.BDD.MembreDAO().getIdMembre(securite)
+            val numPeriod = periodView.bdd.periodeDAO().getIdperiod(period)
+            val numSite = siteView.bdd.siteDAO().getIdSite(site)
+            val numBateau = bateauView.bdd.bateauDAO().getIdBateau(bateau)
+            val numNiveau = niveauView.bdd.perogativeDAO().getIdNiveau(niveau)
+            val numDirecteur = directeurView.bdd.membreDAO().getIdMembre(directeur)
+            val numPilote = piloteView.bdd.membreDAO().getIdMembre(pilote)
+            val numSecurite = securiteView.bdd.membreDAO().getIdMembre(securite)
             val observation: String = " "
 
             val nouvellePlongee = Plongee(
@@ -149,7 +147,7 @@ class ViewInterface : AppCompatActivity() {
                 effectifMax,
                 observation
             )
-            plongeeView.BDD.PlongeeDAO().insert(nouvellePlongee)
+            plongeeView.bdd.plongeeDAO().insert(nouvellePlongee)
             val url = "https://dev-sae301grp5.users.info.unicaen.fr/api/dives?" +
                     "date=" + date + "&" +
                     "period=" + numPeriod + "&" +
@@ -178,7 +176,7 @@ class ViewInterface : AppCompatActivity() {
     ) {
         Thread {
 
-            val list: List<String> = periodView.BDD.PeriodeDAO().getLabel()
+            val list: List<String> = periodView.bdd.periodeDAO().getLabel()
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
             spinnerPeriod.adapter = adapter
@@ -186,7 +184,7 @@ class ViewInterface : AppCompatActivity() {
 
         Thread {
 
-            val list: List<String> = siteView.BDD.SiteDAO().getNom()
+            val list: List<String> = siteView.bdd.siteDAO().getNom()
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
             spinnerSite.adapter = adapter
@@ -194,7 +192,7 @@ class ViewInterface : AppCompatActivity() {
 
         Thread {
 
-            val list: List<String> = bateauView.BDD.BateauDAO().getNom()
+            val list: List<String> = bateauView.bdd.bateauDAO().getNom()
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
             spinnerBateau.adapter = adapter
@@ -202,7 +200,7 @@ class ViewInterface : AppCompatActivity() {
 
         Thread {
 
-            val list: List<String> = niveauView.BDD.PerogativeDAO().getNiveau()
+            val list: List<String> = niveauView.bdd.perogativeDAO().getNiveau()
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
             spinnerNiveau.adapter = adapter
@@ -210,7 +208,7 @@ class ViewInterface : AppCompatActivity() {
 
         Thread {
 
-            var list: List<String> = directeurView.BDD.MembreDAO().getNomResponsable()
+            var list: List<String> = directeurView.bdd.membreDAO().getNomResponsable()
             if (list.isEmpty()) list = listOf(" ")
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
@@ -219,14 +217,14 @@ class ViewInterface : AppCompatActivity() {
 
         Thread {
 
-            val list: List<String> = piloteView.BDD.MembreDAO().getNomPilote()
+            val list: List<String> = piloteView.bdd.membreDAO().getNomPilote()
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
             spinnerpilote.adapter = adapter
         }.start()
 
         Thread {
-            val list: List<String> = securiteView.BDD.MembreDAO().getNomSecurite()
+            val list: List<String> = securiteView.bdd.membreDAO().getNomSecurite()
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
             spinnersecurite.adapter = adapter

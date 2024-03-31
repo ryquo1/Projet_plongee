@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="159dp"
+            android:layout_width="161dp"
             android:layout_height="match_parent"
             android:minHeight="48dp"
             android:orientation="vertical">
@@ -212,17 +212,16 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editTextDate"
+                android:id="@+id/editTextjour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:autofillHints=""
                 android:ems="10"
-                android:hint="@string/ExampleEffectifMin"
+                android:hint="@string/ExampleDate"
                 android:inputType="text"
-                android:minHeight="48dp"
-                android:text="@string/ExampleDate" />
+                android:minHeight="48dp" />
 
             <Spinner
                 android:id="@+id/PeriodSpinner"

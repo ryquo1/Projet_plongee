@@ -1,14 +1,10 @@
-package com.example.projet_plongee.Api
+package com.example.projet_plongee.api
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
 import androidx.compose.runtime.livedata.observeAsState
 import org.json.JSONObject
 import androidx.compose.runtime.Composable
-import com.example.projet_plongee.base.*
-import com.example.projet_plongee.base.dao.DaoBateau
 import com.example.projet_plongee.base.entity.Bateau
 import com.example.projet_plongee.base.entity.Membre
 import com.example.projet_plongee.base.entity.Periode
@@ -33,15 +29,15 @@ class Gestion {
                 val json = JSONObject(state.value!!)
                 val array = json.getJSONArray("data")
                 Thread {
-                    for (i in 0..array.length() - 1) {
+                    for (i in 0..<array.length()) {
                         val json2 = JSONObject(array.getJSONObject(i).getString("attributes"))
                         val nouveauBateau = Bateau(
                             i.toLong(),
                             json2.getString("name"),
                             json2.getString("capacity").toInt(),
                         )
-                        viewBateau.BDD.BateauDAO().delete(nouveauBateau) //a changer
-                        viewBateau.BDD.BateauDAO().insert(nouveauBateau)
+                        viewBateau.bdd.bateauDAO().delete(nouveauBateau) //a changer
+                        viewBateau.bdd.bateauDAO().insert(nouveauBateau)
                     }
                 }.start()
             }
@@ -60,7 +56,7 @@ class Gestion {
                 val json = JSONObject(state.value!!)
                 val array = json.getJSONArray("data")
                 Thread {
-                    for (i in 0..array.length() - 1) {
+                    for (i in 0..<array.length()) {
                         val json2 = JSONObject(array.getJSONObject(i).getString("attributes"))
                         val nouvellePeriod = Periode(
                             i.toLong(),
@@ -68,8 +64,8 @@ class Gestion {
                             json2.getString("start_time"),
                             json2.getString("end_time"),
                         )
-                        viewPeriod.BDD.PeriodeDAO().delete(nouvellePeriod) //a changer
-                        viewPeriod.BDD.PeriodeDAO().insert(nouvellePeriod)
+                        viewPeriod.bdd.periodeDAO().delete(nouvellePeriod) //a changer
+                        viewPeriod.bdd.periodeDAO().insert(nouvellePeriod)
                     }
                 }.start()
             }
@@ -87,7 +83,7 @@ class Gestion {
                 val json = JSONObject(state.value!!)
                 val array = json.getJSONArray("data")
                 Thread {
-                    for (i in 0..array.length() - 1) {
+                    for (i in 0..<array.length()) {
                         val json2 = JSONObject(array.getJSONObject(i).getString("attributes"))
                         val nouvellePrerogative = Perogative(
                             i.toLong(),
@@ -95,8 +91,8 @@ class Gestion {
                             json2.getString("label"),
                             json2.getString("priority").toInt(),
                         )
-                        viewPerogative.BDD.PerogativeDAO().delete(nouvellePrerogative) //a changer
-                        viewPerogative.BDD.PerogativeDAO().insert(nouvellePrerogative)
+                        viewPerogative.bdd.perogativeDAO().delete(nouvellePrerogative) //a changer
+                        viewPerogative.bdd.perogativeDAO().insert(nouvellePrerogative)
                     }
                 }.start()
             }
@@ -114,7 +110,7 @@ class Gestion {
                 val json = JSONObject(state.value!!)
                 val array = json.getJSONArray("data")
                 Thread {
-                    for (i in 0..array.length() - 1) {
+                    for (i in 0..<array.length()) {
                         val json2 = JSONObject(array.getJSONObject(i).getString("attributes"))
                         val nouveauSite = Siteplongee(
                             i.toLong(),
@@ -123,8 +119,8 @@ class Gestion {
                             json2.getString("depth"),
                             json2.getString("description"),
                         )
-                        viewSite.BDD.SiteDAO().delete(nouveauSite) //a changer
-                        viewSite.BDD.SiteDAO().insert(nouveauSite)
+                        viewSite.bdd.siteDAO().delete(nouveauSite) //a changer
+                        viewSite.bdd.siteDAO().insert(nouveauSite)
                     }
                 }.start()
             }
@@ -134,7 +130,7 @@ class Gestion {
     @Composable
     fun GetMembreToBdd(requete: Requete, viewMembre: MembreView) {
         val state = requete.getMembreResult().observeAsState()
-        var res: Int = 0
+        var res = 0
         requete.getAllMembre()
         if (state.value == null) {
             CircularProgressIndicator()
@@ -142,10 +138,10 @@ class Gestion {
             val json = JSONObject(state.value!!)
             val array = json.getJSONArray("data")
             Thread {
-                for (i in 0..array.length() - 1) {
+                for (i in 0..<array.length()) {
                     val json2 = JSONObject(array.getJSONObject(i).getString("attributes"))
                     val array2 = json2.getJSONArray("functions")
-                    for (j in 0..array2.length() - 1) {
+                    for (j in 0..<array2.length()) {
                         val json3 = JSONObject(array2.getJSONObject(j).getString("pivot"))
                         res = json3.get("NUM_FUNCTION").toString().toInt()
                     }
@@ -161,8 +157,8 @@ class Gestion {
                         json2.getString("remaining_dives").toInt(),
                         json2.getString("subdate"),
                     )
-                    viewMembre.BDD.MembreDAO().delete(nouveauMembre) //a changer
-                    viewMembre.BDD.MembreDAO().insert(nouveauMembre)
+                    viewMembre.bdd.membreDAO().delete(nouveauMembre) //a changer
+                    viewMembre.bdd.membreDAO().insert(nouveauMembre)
                 }
             }.start()
         }

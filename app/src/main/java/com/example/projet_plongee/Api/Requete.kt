@@ -1,4 +1,4 @@
-package com.example.projet_plongee.Api
+package com.example.projet_plongee.api
 
 import android.util.Log
 import androidx.lifecycle.LiveData
