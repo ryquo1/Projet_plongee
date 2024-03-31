@@ -1,5 +1,6 @@
 package com.example.projet_plongee.Api
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -125,4 +126,22 @@ class Requete : ViewModel() {
         return liveDataMembre
     }
 
+
+    fun postDive(requete: String) {
+        Thread {
+            val urlRequest = URL(requete)
+            try {
+                val conn = urlRequest.openConnection() as HttpsURLConnection
+                conn.requestMethod = "POST"
+                conn.connect()
+                if (conn.responseCode != 200) {
+                    Log.d("REQUETEPOST", conn.responseMessage)
+                    return@Thread
+                }
+            } catch (e: Exception) {
+                Log.d("ERRORREQUETE", e.message.toString())
+                return@Thread
+            }
+        }.start()
+    }
 }

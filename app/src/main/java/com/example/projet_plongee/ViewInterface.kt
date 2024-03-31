@@ -1,6 +1,7 @@
 package com.example.projet_plongee
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -9,9 +10,11 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.projet_plongee.Api.Requete
 import com.example.projet_plongee.base.entity.Plongee
 import com.example.projet_plongee.base.view.BateauView
 import com.example.projet_plongee.base.view.MembreView
@@ -19,9 +22,12 @@ import com.example.projet_plongee.base.view.PeriodeView
 import com.example.projet_plongee.base.view.PerogativeView
 import com.example.projet_plongee.base.view.PlongeeView
 import com.example.projet_plongee.base.view.SiteView
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import kotlin.concurrent.thread
 
 class ViewInterface : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -103,6 +109,7 @@ class ViewInterface : AppCompatActivity() {
     private val securiteView: MembreView by viewModels()
     private val plongeeView: PlongeeView by viewModels()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun CreateBouton(
         date: String,
         period: String,
@@ -117,15 +124,16 @@ class ViewInterface : AppCompatActivity() {
     ) {
 
         thread {
-        val id: Long = 0
-        val numPeriod = periodView.BDD.PeriodeDAO().getIdperiod(period)
-        val numSite = siteView.BDD.SiteDAO().getIdSite(site)
-        val numBateau = bateauView.BDD.BateauDAO().getIdBateau(bateau)
-        val numNiveau = niveauView.BDD.PerogativeDAO().getIdNiveau(niveau)
-        val numDirecteur = directeurView.BDD.MembreDAO().getIdMembre(directeur)
-        val numPilote = piloteView.BDD.MembreDAO().getIdMembre(pilote)
-        val numSecurite = securiteView.BDD.MembreDAO().getIdMembre(securite)
-        val observation: String = " "
+            val requete = Requete()
+            val id: Long = 0
+            val numPeriod = periodView.BDD.PeriodeDAO().getIdperiod(period)
+            val numSite = siteView.BDD.SiteDAO().getIdSite(site)
+            val numBateau = bateauView.BDD.BateauDAO().getIdBateau(bateau)
+            val numNiveau = niveauView.BDD.PerogativeDAO().getIdNiveau(niveau)
+            val numDirecteur = directeurView.BDD.MembreDAO().getIdMembre(directeur)
+            val numPilote = piloteView.BDD.MembreDAO().getIdMembre(pilote)
+            val numSecurite = securiteView.BDD.MembreDAO().getIdMembre(securite)
+            val observation: String = " "
 
             val nouvellePlongee = Plongee(
                 id,
@@ -142,8 +150,20 @@ class ViewInterface : AppCompatActivity() {
                 observation
             )
             plongeeView.BDD.PlongeeDAO().insert(nouvellePlongee)
+            val url = "https://dev-sae301grp5.users.info.unicaen.fr/api/dives?" +
+                    "date=" + date + "&" +
+                    "period=" + numPeriod + "&" +
+                    "min_registered=" + effectifMin + "&" +
+                    "max_registered=" + effectifMax + "&" +
+                    "observation=" + observation + "&" +
+                    "boat=" + numBateau + "&" +
+                    "site=" + numSite + "&" +
+                    "surface_security=" + numSecurite + 1 + "&" +
+                    "leader=" + numDirecteur + 1 + "&" +
+                    "pilot=" + numPilote + 1
+            requete.postDive(url)
         }
-
+        
     }
 
 
